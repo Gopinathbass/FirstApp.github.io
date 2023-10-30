@@ -1,1 +1,29 @@
-<p>post works!</p>
+<div class="form-area">
+ <h3>User details</h3>
+ <input type="text" placeholder="Name" [(ngModel)]="name"><br><br>
+ <input type="email" placeholder="Email" [(ngModel)]="email"><br><br>
+ <textarea name="address"  cols="30" rows="10" placeholder="address" [(ngModel)]="address"></textarea><br><br>
+ <button (click)="saveData()">Save Data</button>
+</div>
+
+<div class="table-area">
+    <table width="500">
+<thead>
+    <th>#</th>
+    <th>name</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Action</th>
+</thead>
+<tr *ngFor="let user of userarray;let i=  index">
+    <td>{{i+1}}</td>
+<td>{{user.Name}}</td>
+<td>{{user.Email}}</td>
+<td>{{user.Address}}</td>
+<td>
+    <button (click)="Ondelete(i)">delete</button>
+</td>
+</tr>
+
+    </table>
+</div>

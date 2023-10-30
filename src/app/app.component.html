@@ -1,4 +1,4 @@
-<p>{{PostArray}}</p>
+<p>{{PostArray}} ngFor</p>
 
 <ul>
   <li>{{PostArray[0]}}</li>
@@ -13,8 +13,54 @@
 </ol>
 
 <button (click)="addNew()"> Add New Data </button>
-<ul>
-  <li *ngFor="let obj of objArray">{{obj.postTitle}}
-    <button (click)="OnDelete(obj)">delete</button>
+<!-- <ul>
+  <li *ngFor="let obj of objArray; let i =index">{{i+1}} - {{obj.postTitle}}
+    <button (click)="OnDelete(i)">delete</button>
   </li>
-</ul>
+</ul> -->
+
+<p>ng If</p>
+
+<div *ngIf="objArray.length>0;then postlist ;else Nodata"></div>
+<ng-template #postlist>
+  <ul>
+    <li *ngFor="let obj of objArray; let i =index">{{i+1}} - {{obj.postTitle}}
+      <button (click)="OnDelete(i)">delete</button>
+    </li>
+  </ul>
+
+</ng-template>
+
+
+<ng-template #Nodata>
+  <p>There is no data to fetch......</p>
+</ng-template>
+
+<p> ngSwitch</p>
+
+<div>
+  <button (click)="Onclick('step1')">Step 1</button>
+  <button (click)="Onclick('step2')">Step 2</button>
+  <button (click)="Onclick('step1')">Step 3</button>
+</div>
+<div [ngSwitch]="stepform">
+  <div *ngSwitchCase="'step1'">step 1 form</div>
+  <div *ngSwitchCase="'step2'">step 2 form</div>
+  <div *ngSwitchCase="'step3'">step 3 form</div>
+  <div *ngSwitchDefault> Something  else</div>
+
+</div>
+
+<h1 [ngStyle]="{
+  color:isActive?'red':'yellow',
+  textTransform:isActive?'uppercase':'lowercase'
+}" > ngStyle</h1>
+
+<h1 [ngClass]="{
+  'main':isActive,
+  'text-weight':isActive
+}">Ng class</h1>
+
+
+<app-post></app-post>
+
