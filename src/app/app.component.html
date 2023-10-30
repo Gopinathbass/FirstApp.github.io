@@ -11,6 +11,10 @@
 <ol>
   <li *ngFor="let post of PostArray">{{post}}</li>
 </ol>
+
+<button (click)="addNew()"> Add New Data </button>
 <ul>
-  <li *ngFor="let obj of objArray">{{obj.postTitle}}</li>
+  <li *ngFor="let obj of objArray">{{obj.postTitle}}
+    <button (click)="OnDelete(obj)">delete</button>
+  </li>
 </ul>

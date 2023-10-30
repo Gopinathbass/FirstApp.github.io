@@ -19,5 +19,14 @@ export class AppComponent {
     console.log(this.PostArray[i]);
     
   }
+
+ }
+ addNew(){
+  this.objArray.push({id:6,postTitle:'Post 6'});
+ }
+ OnDelete(post:any){
+  let index=this.objArray.indexOf(post);
+  this.objArray.splice(index,1);
+
  }
 }
